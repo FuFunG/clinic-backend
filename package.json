@@ -1,0 +1,39 @@
+{
+  "name": "clinic-backend",
+  "version": "1.0.0",
+  "description": "Clinic Backend Server",
+  "main": "./src/index.ts",
+  "dependencies": {
+    "@types/lodash": "^4.14.168",
+    "apollo-server-express": "^2.16.1",
+    "bcryptjs": "^2.4.3",
+    "class-transformer": "^0.3.1",
+    "class-validator": "^0.13.1",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "pg": "^8.5.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.25"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/cors": "^2.8.6",
+    "@types/express": "^4.17.1",
+    "@types/jsonwebtoken": "^8.3.3",
+    "@types/node": "^12.7.5",
+    "nodemon": "^1.19.2",
+    "ts-node": "8.3.0",
+    "typescript": "3.6.3"
+  },
+  "scripts": {
+    "start": "nodemon --exec ts-node src/index.ts"
+  },
+  "author": "Clinic",
+  "license": "ISC"
+}
