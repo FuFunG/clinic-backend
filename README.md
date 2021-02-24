@@ -23,8 +23,8 @@ Project Testing EndPoint: http://clinic.futszfung.com/
 
 ## Project Structure:
 
-- [Entity](/tree/main/src/entity) - Database Entity
-- [Auth](/tree/main/src/Auth) - JWT + Authourization Minddleware
-- [Query](/tree/main/src/query) - SQL Query
-- [Response](/tree/main/src/Response) - HTTP Response Structure
-- [Route](/tree/main/src/route) - API Entry Point
+- [Entity](/src/entity) - Database Entity
+- [Auth](/src/Auth) - JWT + Authourization Minddleware
+- [Query](/src/query) - SQL Query
+- [Response](/src/Response) - HTTP Response Structure
+- [Route](/src/route) - API Entry Point
