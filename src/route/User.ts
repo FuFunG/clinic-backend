@@ -1,5 +1,5 @@
 import express from "express"
-import Constants from "src/Constants";
+import Constants from "../Constants";
 
 import { createAccessToken, createRefreshToken, getTokenPayload } from "../Auth";
 import { createUser, getDoctor, getPatient, getUserByEmail, getUserById, login } from "../query/User";
