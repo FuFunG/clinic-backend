@@ -23,7 +23,7 @@ user.get('/', async (req, res) => {
         res.status(403).send(BasicResponse(false, 'Forbidden'))
         return
     } else {
-        const users = await role === 'doctor' ? getDoctor(user.clinic) : getPatient(user.clinic)
+        const users = role === 'doctor' ? await getDoctor(user.clinic) : await getPatient(user.clinic)
         res.status(200).send(BasicResponse(true, 'get users success', { users }))
         return
     }
