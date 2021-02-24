@@ -7,8 +7,8 @@ Project Testing EndPoint: http://clinic.futszfung.com/
 - doctor@test.com / Passw0rd (Doctor)
 
 ## Ahourization:
-- Only Doctor can be create consultation record.
-- Doctor only create consultation base on there clinic.
+- Only Doctor can create consultation record.
+- Doctor create consultation base on there clinic.
 - Doctor only getting there clinic consultation records.
 
 - All user only getting their consultation records
