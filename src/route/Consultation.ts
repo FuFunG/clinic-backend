@@ -37,14 +37,16 @@ consultation.get('/', async (req, res) => {
 });
 
 consultation.post('/', isDoctor, async (req, res) => {
-    const { clinic, doctorId, patientId, diagnosis, medication, consultationFee, date, time, followUp } = req.body
+    const { doctorId, patientId, diagnosis, medication, consultationFee, date, time, followUp } = req.body
 
-    if (!clinic || !doctorId || !patientId || !diagnosis || !medication || consultationFee <= 0 || !date || !time) {
+    if (!doctorId || !patientId || !diagnosis || !medication || consultationFee <= 0 || !date || !time) {
         res.status(400).send(BasicResponse(false, 'input wrong'))
         return
     }
+    const payload = getTokenPayload(req.headers['authorization'])
+    const user = await getUserById(payload!!.userId)
 
-    const consultation = await createConsultation(clinic, doctorId, patientId, diagnosis, medication, consultationFee, date, time, followUp)
+    const consultation = await createConsultation(user!!.clinic, doctorId, patientId, diagnosis, medication, consultationFee, date, time, followUp)
     if (!consultation) {
         res.status(500).send(BasicResponse(false, 'consultation create failed'))
     } else {
