@@ -1,10 +1,33 @@
 import express from "express"
+import Constants from "src/Constants";
 
-import { createAccessToken, createRefreshToken } from "../Auth";
-import { createUser, getUserByEmail, login } from "../query/User";
+import { createAccessToken, createRefreshToken, getTokenPayload } from "../Auth";
+import { createUser, getDoctor, getPatient, getUserByEmail, getUserById, login } from "../query/User";
 import BasicResponse from "../Response/BasicResponse";
 
 var user = express.Router();
+
+user.get('/', async (req, res) => {
+    const role = req.query.role
+    const payload = getTokenPayload(req.headers['authorization'])
+    if (!payload) {
+        res.status(401).send(BasicResponse(false, 'Unauthorized'))
+        return
+    }
+    const user = await getUserById(payload.userId)
+    if (!user) {
+        res.status(401).send(BasicResponse(false, 'Unauthorized'))
+        return
+    }
+    if (user.role !== Constants.DOCTOR) {
+        res.status(403).send(BasicResponse(false, 'Forbidden'))
+        return
+    } else {
+        const users = await role === 'doctor' ? getDoctor(user.clinic) : getPatient(user.clinic)
+        res.status(200).send(BasicResponse(true, 'get users success', { users }))
+        return
+    }
+});
 
 user.post('/login', async (req, res) => {
     const { email, password } = req.body
