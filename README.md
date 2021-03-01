@@ -1,5 +1,11 @@
 # clinic-backend
 
+## Get Started:
+
+```
+npm run start
+```
+
 Project Testing EndPoint: http://clinic.futszfung.com/
 
 ## Testing Account:
